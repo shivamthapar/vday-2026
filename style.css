@@ -12,7 +12,7 @@
     --cream: #fff5f7;
     --white: #ffffff;
     --gray: #6b7280;
-    --cell-size: 28px;
+    --cell-size: 24px;
 }
 
 body {
@@ -23,7 +23,7 @@ body {
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
     padding: 20px;
 }
@@ -44,6 +44,16 @@ header h1 {
     font-size: 1.2rem;
     color: var(--gray);
     font-style: italic;
+}
+
+.hint {
+    font-size: 0.95rem;
+    color: var(--dark-pink);
+    margin-top: 8px;
+    padding: 8px 16px;
+    background-color: rgba(255, 107, 157, 0.1);
+    border-radius: 20px;
+    display: inline-block;
 }
 
 .game-container {
@@ -123,6 +133,39 @@ header h1 {
 
 .cell.correct {
     background-color: #d4edda;
+}
+
+.cell.reveal-cell {
+    background-color: #fff0f3;
+    border: 2px solid var(--primary-pink);
+}
+
+.cell.reveal-cell.active {
+    background-color: var(--light-pink);
+}
+
+.cell.reveal-animate {
+    animation: revealPulse 0.5s ease;
+    background-color: var(--primary-pink) !important;
+}
+
+.cell.reveal-animate input {
+    color: white !important;
+}
+
+@keyframes revealPulse {
+    0% {
+        transform: scale(1);
+        background-color: var(--light-pink);
+    }
+    50% {
+        transform: scale(1.2);
+        background-color: var(--primary-pink);
+    }
+    100% {
+        transform: scale(1);
+        background-color: var(--primary-pink);
+    }
 }
 
 .cell-number {
@@ -378,10 +421,17 @@ header h1 {
     z-index: 1001;
 }
 
+/* Larger screens - bigger cells */
+@media (min-width: 1200px) {
+    :root {
+        --cell-size: 28px;
+    }
+}
+
 /* Responsive adjustments */
 @media (max-width: 480px) {
     :root {
-        --cell-size: 26px;
+        --cell-size: 22px;
     }
 
     header h1 {
