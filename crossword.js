@@ -549,7 +549,12 @@ function handleKeydown(e) {
 function moveToNextWord() {
     if (!currentWord) return;
 
-    const sortedWords = [...words].sort((a, b) => a.number - b.number);
+    const sortedWords = [...words].sort((a, b) => {
+        // Put WILLYOUBEMYVALENTINE last
+        if (a.word === 'WILLYOUBEMYVALENTINE') return 1;
+        if (b.word === 'WILLYOUBEMYVALENTINE') return -1;
+        return a.number - b.number;
+    });
     const currentIndex = sortedWords.findIndex(w => w.word === currentWord.word && w.direction === currentWord.direction);
     const nextIndex = (currentIndex + 1) % sortedWords.length;
 

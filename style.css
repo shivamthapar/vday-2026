@@ -5,28 +5,27 @@
 }
 
 :root {
-    --primary-pink: #f8a5c2;
-    --light-pink: #ffeef2;
-    --dark-pink: #e17094;
-    --accent: #a29bfe;
-    --cream: #fdfbfb;
+    --blush: #fdf5f5;
+    --soft-pink: #f5e1e1;
+    --dusty-pink: #e8d0d0;
+    --deep-red: #c41e3a;
     --white: #ffffff;
-    --gray: #9ca3af;
-    --text-dark: #4a5568;
-    --cell-size: 24px;
+    --gray: #b5a8a8;
+    --text-dark: #2d2d2d;
+    --cell-size: 20px;
 }
 
 body {
     font-family: 'Georgia', serif;
-    background: linear-gradient(180deg, var(--cream) 0%, #f5f0ff 100%);
+    background-color: var(--blush);
     min-height: 100vh;
     color: var(--text-dark);
 }
 
 .container {
-    max-width: 1400px;
+    max-width: 100%;
     margin: 0 auto;
-    padding: 20px;
+    padding: 20px 40px;
 }
 
 header {
@@ -38,6 +37,7 @@ header h1 {
     font-size: 2.5rem;
     color: var(--text-dark);
     margin-bottom: 10px;
+    font-weight: bold;
 }
 
 .subtitle {
@@ -48,10 +48,10 @@ header h1 {
 
 .hint {
     font-size: 0.95rem;
-    color: var(--accent);
+    color: var(--deep-red);
     margin-top: 8px;
     padding: 8px 16px;
-    background-color: rgba(162, 155, 254, 0.1);
+    background-color: var(--soft-pink);
     border-radius: 20px;
     display: inline-block;
 }
@@ -79,11 +79,11 @@ header h1 {
 
 .crossword-grid {
     display: grid;
-    gap: 2px;
-    background-color: var(--accent);
-    padding: 2px;
-    border-radius: 8px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    gap: 1px;
+    background-color: var(--dusty-pink);
+    padding: 1px;
+    border-radius: 4px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
 .cell {
@@ -102,7 +102,7 @@ header h1 {
 }
 
 .cell.blocked {
-    background-color: var(--accent);
+    background-color: var(--soft-pink);
     cursor: default;
 }
 
@@ -111,12 +111,12 @@ header h1 {
     height: 100%;
     border: none;
     text-align: center;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: bold;
     text-transform: uppercase;
     background: transparent;
     cursor: pointer;
-    caret-color: var(--accent);
+    caret-color: var(--deep-red);
     color: var(--text-dark);
 }
 
@@ -125,11 +125,11 @@ header h1 {
 }
 
 .cell.active {
-    background-color: #e8e4ff;
+    background-color: var(--soft-pink);
 }
 
 .cell.active-word {
-    background-color: #f3f1ff;
+    background-color: #faf0f0;
 }
 
 .cell.correct {
@@ -137,17 +137,17 @@ header h1 {
 }
 
 .cell.reveal-cell {
-    background-color: #f8f7ff;
-    border: 2px solid var(--accent);
+    background-color: #fff5f5;
+    border: 2px solid var(--deep-red);
 }
 
 .cell.reveal-cell.active {
-    background-color: #e8e4ff;
+    background-color: var(--soft-pink);
 }
 
 .cell.reveal-animate {
     animation: revealPulse 0.5s ease;
-    background-color: var(--accent) !important;
+    background-color: var(--deep-red) !important;
 }
 
 .cell.reveal-animate input {
@@ -157,15 +157,15 @@ header h1 {
 @keyframes revealPulse {
     0% {
         transform: scale(1);
-        background-color: #e8e4ff;
+        background-color: var(--soft-pink);
     }
     50% {
         transform: scale(1.2);
-        background-color: var(--accent);
+        background-color: var(--deep-red);
     }
     100% {
         transform: scale(1);
-        background-color: var(--accent);
+        background-color: var(--deep-red);
     }
 }
 
@@ -182,32 +182,30 @@ header h1 {
 .clues-container {
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    max-width: 400px;
-    width: 100%;
+    gap: 15px;
 }
 
 @media (min-width: 768px) {
     .clues-container {
         flex-direction: row;
-        max-width: 600px;
     }
 }
 
 .clues-section {
-    flex: 1;
     background: var(--white);
-    padding: 20px;
+    padding: 15px;
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    flex-shrink: 0;
 }
 
 .clues-section h2 {
     color: var(--text-dark);
-    margin-bottom: 15px;
-    font-size: 1.3rem;
-    border-bottom: 2px solid #e8e4ff;
-    padding-bottom: 8px;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+    border-bottom: 2px solid var(--soft-pink);
+    padding-bottom: 6px;
 }
 
 .clue-list {
@@ -215,27 +213,27 @@ header h1 {
 }
 
 .clue-list li {
-    padding: 8px 10px;
-    margin-bottom: 5px;
+    padding: 6px 8px;
+    margin-bottom: 4px;
     border-radius: 6px;
     cursor: pointer;
     transition: background-color 0.2s ease;
-    font-size: 0.9rem;
-    line-height: 1.4;
+    font-size: 0.8rem;
+    line-height: 1.3;
 }
 
 .clue-list li:hover {
-    background-color: #f8f7ff;
+    background-color: var(--blush);
 }
 
 .clue-list li.active {
-    background-color: #e8e4ff;
+    background-color: var(--soft-pink);
     color: var(--text-dark);
 }
 
 .clue-number {
     font-weight: bold;
-    color: var(--accent);
+    color: var(--deep-red);
     margin-right: 5px;
 }
 
@@ -245,20 +243,20 @@ header h1 {
 }
 
 .check-btn {
-    background: linear-gradient(135deg, var(--primary-pink), var(--accent));
+    background: var(--deep-red);
     color: white;
     border: none;
-    padding: 15px 40px;
-    font-size: 1.1rem;
-    border-radius: 50px;
+    padding: 12px 36px;
+    font-size: 1rem;
+    border-radius: 6px;
     cursor: pointer;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
-    box-shadow: 0 4px 15px rgba(162, 155, 254, 0.3);
+    box-shadow: 0 2px 8px rgba(196, 30, 58, 0.2);
 }
 
 .check-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(162, 155, 254, 0.4);
+    box-shadow: 0 4px 12px rgba(196, 30, 58, 0.3);
 }
 
 .check-btn:active {
@@ -272,7 +270,7 @@ header h1 {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(180deg, var(--cream) 0%, #ffeef2 50%, #f5f0ff 100%);
+    background-color: var(--blush);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -306,7 +304,7 @@ header h1 {
 
 .reveal-title {
     font-size: 2.5rem;
-    color: var(--dark-pink);
+    color: var(--deep-red);
     margin-bottom: 30px;
     animation: pulse 2s ease-in-out infinite;
 }
@@ -320,30 +318,24 @@ header h1 {
     }
 }
 
-.photo-placeholder {
+.photo-container {
     width: 300px;
     height: 300px;
     margin: 0 auto 30px;
     background: var(--white);
-    border-radius: 20px;
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
-    border: 4px solid #e8e4ff;
+    box-shadow: 0 8px 25px rgba(196, 30, 58, 0.15);
+    border: 4px solid var(--dusty-pink);
     overflow: hidden;
 }
 
-.photo-placeholder img {
+.our-photo {
     width: 100%;
     height: 100%;
     object-fit: cover;
-}
-
-.placeholder-text {
-    color: var(--gray);
-    font-style: italic;
-    font-size: 1.2rem;
 }
 
 .personal-note {
@@ -421,10 +413,22 @@ header h1 {
     z-index: 1001;
 }
 
+/* Decorative Bunny */
+.decorative-bunny {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: 150px;
+    height: auto;
+    pointer-events: none;
+    z-index: 10;
+    opacity: 0.9;
+}
+
 /* Larger screens - bigger cells */
-@media (min-width: 1200px) {
+@media (min-width: 1400px) {
     :root {
-        --cell-size: 28px;
+        --cell-size: 24px;
     }
 }
 
@@ -446,7 +450,7 @@ header h1 {
         font-size: 1.8rem;
     }
 
-    .photo-placeholder {
+    .photo-container {
         width: 250px;
         height: 250px;
     }
