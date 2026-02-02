@@ -5,21 +5,22 @@
 }
 
 :root {
-    --primary-pink: #ff6b9d;
-    --light-pink: #ffc2d1;
-    --dark-pink: #c9184a;
-    --red: #e63946;
-    --cream: #fff5f7;
+    --primary-pink: #f8a5c2;
+    --light-pink: #ffeef2;
+    --dark-pink: #e17094;
+    --accent: #a29bfe;
+    --cream: #fdfbfb;
     --white: #ffffff;
-    --gray: #6b7280;
+    --gray: #9ca3af;
+    --text-dark: #4a5568;
     --cell-size: 24px;
 }
 
 body {
     font-family: 'Georgia', serif;
-    background: linear-gradient(135deg, var(--cream) 0%, var(--light-pink) 100%);
+    background: linear-gradient(180deg, var(--cream) 0%, #f5f0ff 100%);
     min-height: 100vh;
-    color: #333;
+    color: var(--text-dark);
 }
 
 .container {
@@ -35,9 +36,8 @@ header {
 
 header h1 {
     font-size: 2.5rem;
-    color: var(--dark-pink);
+    color: var(--text-dark);
     margin-bottom: 10px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .subtitle {
@@ -48,10 +48,10 @@ header h1 {
 
 .hint {
     font-size: 0.95rem;
-    color: var(--dark-pink);
+    color: var(--accent);
     margin-top: 8px;
     padding: 8px 16px;
-    background-color: rgba(255, 107, 157, 0.1);
+    background-color: rgba(162, 155, 254, 0.1);
     border-radius: 20px;
     display: inline-block;
 }
@@ -80,10 +80,10 @@ header h1 {
 .crossword-grid {
     display: grid;
     gap: 2px;
-    background-color: var(--dark-pink);
+    background-color: var(--accent);
     padding: 2px;
     border-radius: 8px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
 .cell {
@@ -102,7 +102,7 @@ header h1 {
 }
 
 .cell.blocked {
-    background-color: var(--dark-pink);
+    background-color: var(--accent);
     cursor: default;
 }
 
@@ -116,7 +116,8 @@ header h1 {
     text-transform: uppercase;
     background: transparent;
     cursor: pointer;
-    caret-color: var(--dark-pink);
+    caret-color: var(--accent);
+    color: var(--text-dark);
 }
 
 .cell input:focus {
@@ -124,11 +125,11 @@ header h1 {
 }
 
 .cell.active {
-    background-color: var(--light-pink);
+    background-color: #e8e4ff;
 }
 
 .cell.active-word {
-    background-color: #ffe4ec;
+    background-color: #f3f1ff;
 }
 
 .cell.correct {
@@ -136,17 +137,17 @@ header h1 {
 }
 
 .cell.reveal-cell {
-    background-color: #fff0f3;
-    border: 2px solid var(--primary-pink);
+    background-color: #f8f7ff;
+    border: 2px solid var(--accent);
 }
 
 .cell.reveal-cell.active {
-    background-color: var(--light-pink);
+    background-color: #e8e4ff;
 }
 
 .cell.reveal-animate {
     animation: revealPulse 0.5s ease;
-    background-color: var(--primary-pink) !important;
+    background-color: var(--accent) !important;
 }
 
 .cell.reveal-animate input {
@@ -156,15 +157,15 @@ header h1 {
 @keyframes revealPulse {
     0% {
         transform: scale(1);
-        background-color: var(--light-pink);
+        background-color: #e8e4ff;
     }
     50% {
         transform: scale(1.2);
-        background-color: var(--primary-pink);
+        background-color: var(--accent);
     }
     100% {
         transform: scale(1);
-        background-color: var(--primary-pink);
+        background-color: var(--accent);
     }
 }
 
@@ -202,10 +203,10 @@ header h1 {
 }
 
 .clues-section h2 {
-    color: var(--dark-pink);
+    color: var(--text-dark);
     margin-bottom: 15px;
     font-size: 1.3rem;
-    border-bottom: 2px solid var(--light-pink);
+    border-bottom: 2px solid #e8e4ff;
     padding-bottom: 8px;
 }
 
@@ -224,17 +225,17 @@ header h1 {
 }
 
 .clue-list li:hover {
-    background-color: var(--cream);
+    background-color: #f8f7ff;
 }
 
 .clue-list li.active {
-    background-color: var(--light-pink);
-    color: var(--dark-pink);
+    background-color: #e8e4ff;
+    color: var(--text-dark);
 }
 
 .clue-number {
     font-weight: bold;
-    color: var(--dark-pink);
+    color: var(--accent);
     margin-right: 5px;
 }
 
@@ -244,7 +245,7 @@ header h1 {
 }
 
 .check-btn {
-    background: linear-gradient(135deg, var(--primary-pink), var(--dark-pink));
+    background: linear-gradient(135deg, var(--primary-pink), var(--accent));
     color: white;
     border: none;
     padding: 15px 40px;
@@ -252,12 +253,12 @@ header h1 {
     border-radius: 50px;
     cursor: pointer;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
-    box-shadow: 0 4px 15px rgba(201, 24, 74, 0.3);
+    box-shadow: 0 4px 15px rgba(162, 155, 254, 0.3);
 }
 
 .check-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(201, 24, 74, 0.4);
+    box-shadow: 0 6px 20px rgba(162, 155, 254, 0.4);
 }
 
 .check-btn:active {
@@ -271,7 +272,7 @@ header h1 {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, var(--cream) 0%, var(--light-pink) 100%);
+    background: linear-gradient(180deg, var(--cream) 0%, #ffeef2 50%, #f5f0ff 100%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -307,7 +308,6 @@ header h1 {
     font-size: 2.5rem;
     color: var(--dark-pink);
     margin-bottom: 30px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
     animation: pulse 2s ease-in-out infinite;
 }
 
@@ -329,8 +329,8 @@ header h1 {
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
-    border: 4px solid var(--light-pink);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    border: 4px solid #e8e4ff;
     overflow: hidden;
 }
 
