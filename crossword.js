@@ -4,6 +4,9 @@
 // Set to true to skip directly to the reveal screen (for testing)
 const DEBUG_SHOW_REVEAL = false;
 
+// Entry code (birthday months)
+const ENTRY_CODE = '0902';
+
 const GRID_COLS = 33;
 const GRID_ROWS = 22;
 
@@ -676,4 +679,33 @@ function init() {
     }
 }
 
-document.addEventListener('DOMContentLoaded', init);
+function initEntryScreen() {
+    const entryScreen = document.getElementById('entry-screen');
+    const mainContainer = document.getElementById('main-container');
+    const entryInput = document.getElementById('entry-code');
+    const entryBtn = document.getElementById('entry-btn');
+    const entryError = document.getElementById('entry-error');
+
+    function checkCode() {
+        if (entryInput.value === ENTRY_CODE) {
+            entryScreen.classList.add('hidden');
+            mainContainer.classList.remove('hidden');
+            init();
+        } else {
+            entryError.classList.remove('hidden');
+            entryInput.value = '';
+            entryInput.focus();
+        }
+    }
+
+    entryBtn.addEventListener('click', checkCode);
+    entryInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            checkCode();
+        }
+    });
+
+    entryInput.focus();
+}
+
+document.addEventListener('DOMContentLoaded', initEntryScreen);
