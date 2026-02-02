@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Special Puzzle For You</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>A Special Puzzle For You</h1>
+            <p class="subtitle">Fill in the crossword to reveal a secret message...</p>
+        </header>
+
+        <main class="game-container">
+            <div class="crossword-wrapper">
+                <div id="crossword-grid" class="crossword-grid"></div>
+            </div>
+
+            <div class="clues-container">
+                <div class="clues-section">
+                    <h2>Across</h2>
+                    <ul id="across-clues" class="clue-list"></ul>
+                </div>
+                <div class="clues-section">
+                    <h2>Down</h2>
+                    <ul id="down-clues" class="clue-list"></ul>
+                </div>
+            </div>
+        </main>
+
+        <div id="check-container" class="check-container">
+            <button id="check-btn" class="check-btn">Check Puzzle</button>
+        </div>
+    </div>
+
+    <div id="reveal-overlay" class="reveal-overlay hidden">
+        <div class="reveal-content">
+            <div class="hearts-container" id="hearts-container"></div>
+            <h1 class="reveal-title">WILL YOU BE MY VALENTINE?</h1>
+            <div class="photo-placeholder">
+                <div class="placeholder-text">Our Photo Here</div>
+            </div>
+            <p class="personal-note">
+                Every clue in this puzzle is a memory we've shared together.
+                From our first date to our favorite spots, you've made every moment special.
+                I can't wait to create more memories with you.
+            </p>
+            <div class="heart-emoji">💕</div>
+        </div>
+    </div>
+
+    <canvas id="confetti-canvas"></canvas>
+
+    <script src="crossword.js"></script>
+    <script src="confetti.js"></script>
+</body>
+</html>
